@@ -1,0 +1,1285 @@
+/* ==================================================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+/* font-family: 'Open Sans', sans-serif; */
+
+:root {
+  --main-color: #19c8fa;
+  --transparent-color: rgb(15 116 143 / 70%);
+  --section-padding: 100px;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  /*  */
+  -webkit-transition: all .5s;
+  -moz-transition: all .5s;
+  -ms-transition: all .5s;
+  -o-transition: all .5s;
+  transition: all .5s;
+  /*  */
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  min-height: 8000px;
+}
+
+
+.container {
+  padding-inline: 10px;
+  margin-inline: auto;
+}
+
+
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  display: block;
+  height: 100%;
+}
+
+/*=============================================
+=                  Header                     =
+=============================================*/
+
+header {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 999;
+}
+
+header .container {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  min-height: 94px;
+  align-items: center;
+}
+
+header .container::after {
+  content: "";
+  background-color: #a2a2a2;
+  height: 1px;
+  width: calc(100% - 20px);
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+  z-index: -1;
+}
+
+header img {
+  height: 40px;
+}
+
+header nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1;
+}
+
+header nav ul {
+  display: flex;
+  /* align-items: center; */
+  list-style: none;
+}
+
+header nav ul li a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 40px 10px;
+  font-size: 14px;
+}
+
+header nav ul li a.active,
+header nav ul li a:hover {
+  color: var(--main-color);
+  border-bottom: 1px solid var(--main-color);
+}
+
+nav div.form {
+  padding-left: 30px;
+  height: 35px;
+}
+
+nav div.form i {
+  color: white;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  border-left: 1px solid white;
+  padding: 10px 0px 10px 20px;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+}
+
+header nav .toggle-menu {
+  color: white;
+  font-size: 22px;
+  display: none;
+}
+
+@media (max-width: 768px) {
+  header nav .toggle-menu {
+    display: block;
+  }
+
+  header nav ul {
+    left: -100%;
+    /* display: flex; */
+    flex-direction: column;
+    align-items: start;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    /* background-color: rgb(0 0 0 / 50%); */
+    background-color: rgba(0, 0, 0, 0.80);
+    padding-inline: 15px;
+  }
+
+  ul li {
+    width: 100%;
+  }
+
+  nav ul a {
+    padding: 15px !important;
+    text-align: left;
+    width: 100%;
+  }
+
+  /* IF I Use Css Only For The Dropdown menu Use This Code */
+  /* header nav .toggle-menu:hover + ul {
+    left: 0;
+  } */
+
+  /* This is for JS Dropdown */
+  .drop {
+    left: 0;
+  }
+
+  /* .toggle-menu:hover ~ .landing div.text {
+    top: 75%;
+  } */
+}
+
+/*============= End of Header ===============*/
+/*  */
+/*  */
+/*=============================================
+=            Landing            =
+=============================================*/
+
+.landing {
+  background: rgba(0, 0, 0, 60%) url(../images/landing.jpg) no-repeat top center/cover;
+  background-blend-mode: darken;
+  min-height: 100vh;
+  position: relative;
+}
+
+.landing .text {
+  width: 50%;
+  min-height: 300px;
+  color: white;
+  background-color: var(--transparent-color);
+  padding: clamp(20px, 4vw, 50px);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+}
+
+@media (max-width: 768px) {
+  .landing {
+    background: rgba(0, 0, 0, 60%) url(../images/landing.jpg) no-repeat 70%/cover;
+  }
+
+  .landing .text {
+    width: 100%;
+    min-height: 200px;
+  }
+
+  .landing .text div {
+    margin-inline: 30px;
+  }
+
+/*  */
+  /* For .text and arrows to go down when dropdown opens with Js */
+  /* .movetextbox {
+    top: 74% !important;
+    transform: translateY(0) !important;
+    padding: 0 !important;
+}
+  .arrow-move {
+    top: 489px !important;
+  } */
+/*  */
+}
+
+.landing .text div {
+  margin-left: 30px;
+}
+
+.landing .text h2 {
+  font-size: clamp(18px, 3vw, 30px);
+  font-weight: normal;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.landing .text p {
+  font-size: clamp(12px, 1.2vw, 18px);
+  line-height: 2;
+}
+
+.landing .change-background {
+  color: white;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+}
+
+.landing .change-background:first-of-type {
+  left: 30px;
+}
+
+.landing .change-background:last-of-type {
+  right: 30px;
+}
+
+.bullets {
+  width: 75px;
+  height: 40px;
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  right: calc(50%);
+  transform: translateX(50%);
+  list-style: none;
+  -webkit-transform: translateX(50%);
+  -moz-transform: translateX(50%);
+  -ms-transform: translateX(50%);
+  -o-transform: translateX(50%);
+}
+
+.bullets li {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin-right: 5px;
+  border: 1px solid white;
+}
+
+.bullets li.active {
+  background-color: var(--main-color);
+}
+
+/* @media (max-width: 768px) {
+  .toggle-menu:hover ~ .text {
+    top: 75%;
+  }
+} */
+/*=====  End of Landing  ======*/
+/*  */
+/*  */
+/*=============================================
+=            Section One            =
+=============================================*/
+
+.sec1 {
+  min-height: 500px;
+  padding-block: var(--section-padding);
+}
+
+.special-heading {
+  text-align: center;
+}
+
+.special-heading h1 {
+  font-weight: normal;
+  font-size: 40px;
+  text-transform: uppercase;
+  margin-bottom: 70px;
+  margin-top: 0;
+  position: relative;
+}
+
+.special-heading h1::before {
+  content: '';
+  position: absolute;
+  width: 120px;
+  height: 2px;
+  background: #000;
+  bottom: -30px;
+  left: calc(50% - 60px);
+}
+
+.special-heading h1::after {
+  content: '';
+  position: absolute;
+  bottom: -38px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid #333;
+  background: white;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+}
+
+.special-heading p {
+  width: 60ch;
+  line-height: 2;
+  color: #777777;
+  margin: auto;
+  margin-bottom: 100px;
+}
+
+@media (max-width: 765px) {
+  .special-heading p {
+    width: 90vw;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 60px 40px;
+}
+
+.box {
+  display: flex;
+}
+
+.box div:first-of-type i {
+  margin-right: 50px;
+}
+
+.box div:last-of-type h3 {
+  color: var(--main-color);
+  margin-bottom: 25px;
+}
+
+.box div:last-of-type p {
+  line-height: 2;
+  color: #777777;
+}
+
+@media (max-width: 765px) {
+  .box {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .box div:first-of-type i {
+    margin-right: 0;
+    margin-bottom: 30px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+
+/*=====  End of Section One  ======*/
+/*  */
+/*  */
+/*=============================================
+=                 Section Two                 =
+=============================================*/
+
+.sec2 {
+  background: rgba(0, 0, 0, 60%) url(../images/design-features.jpg) no-repeat top/cover;
+  background-blend-mode: darken;
+  width: 100%;
+  /* min-height: 600px; */
+  min-height: 80vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.sec2 img {
+  display: block;
+  width: 25vw;
+  position: absolute;
+  left: 10%;
+  bottom: -15%;
+  z-index: 3;
+}
+
+.sec2 .inner {
+  width: 55%;
+  padding: 50px;
+  background-color: var(--transparent-color);
+  color: white;
+  margin-left: auto;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+}
+
+.sec2 .inner h2 {
+  margin-bottom: 30px;
+  font-weight: unset;
+}
+
+.sec2 .inner ul li {
+  padding: 15px;
+  padding-left: 5px;
+}
+
+.sec2 .inner ul li::before {
+  content: "\e16e";
+  font-family: "Font Awesome 6 pro";
+  padding-right: 20px;
+}
+
+@media (max-width: 768px) {
+  .sec2 img {
+    display: none;
+  }
+
+  .sec2 .inner {
+    width: 100%;
+    padding-inline: 34px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+  }
+}
+
+
+/*=====  End of Section Two  ======*/
+/*  */
+/*  */
+/* =============================================
+=                Section Three                =
+=============================================*/
+
+.sec3 {
+  padding-block: var(--section-padding);
+}
+
+.btns {
+  width: 30%;
+  margin: auto;
+}
+
+.btns ul {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.btns ul li {
+  margin-left: 2px;
+}
+
+.btns ul li a {
+  padding: .88rem;
+}
+
+.btns ul li.active,
+.btns ul li:hover {
+  background-color: var(--main-color);
+  border-radius: 20%;
+}
+
+.btns ul li:hover a,
+.btns ul li.active a {
+  color: white;
+}
+
+/*  */
+
+.sec3 .portfolio {
+  display: flex;
+  flex-flow: row wrap;
+  margin-top: 50px;
+}
+
+figure.card {
+  flex-basis: 25%;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 1200px) {
+  figure.card {
+    flex-basis: 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  figure.card {
+    flex-basis: 100%;
+  }
+}
+
+.sec3 .portfolio figure.card img {
+  width: 100%;
+  height: 100%;
+}
+
+.sec3 .portfolio figure.card:hover img {
+  transform: rotate(3deg) scale(1.1);
+  -webkit-transform: rotate(3deg) scale(1.1);
+  -moz-transform: rotate(3deg) scale(1.1);
+  -ms-transform: rotate(3deg) scale(1.1);
+  -o-transform: rotate(3deg) scale(1.1);
+}
+
+figure.card figcaption {
+  background: white;
+  width: 100%;
+  padding: 15px;
+  position: absolute;
+  bottom: -88px;
+}
+
+.sec3 .portfolio figure.card:hover figcaption {
+  bottom: 0;
+}
+
+figure.card figcaption h4 {
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+
+figure.card figcaption p {
+  color: var(--main-color);
+}
+
+/*  */
+
+.active-btn {
+  width: 150px;
+  height: 60px;
+  margin: 40px auto;
+  background-color: var(--main-color);
+  border: 1px solid var(--main-color);
+  border-radius: 10%;
+}
+
+.active-btn:hover {
+  background-color: white;
+}
+
+.active-btn a {
+  display: block;
+  text-align: center;
+  line-height: 58px;
+  height: 100%;
+  color: white;
+}
+
+.active-btn:hover a {
+  color: black;
+}
+
+
+/*=====  End of Section Three  ======*/
+/*  */
+/*  */
+/*=============================================
+=            Section Four            =
+=============================================*/
+.sec4 {
+  position: relative;
+}
+
+.sec4::before {
+  content: '';
+  background: rgb(0 0 0 / 40%);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.sec4 video {
+  width: 100%;
+}
+
+.sec4 .text-box {
+  background-color: var(--transparent-color);
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+  padding: 50px;
+  color: white;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+}
+
+.sec4 .text-box h2 {
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+.sec4 .text-box p {
+  margin-block: 30px;
+}
+
+.sec4 .text-box button {
+  background-color: black;
+  border: none;
+  text-transform: uppercase;
+  color: white;
+  padding: 10px 20px;
+}
+
+/*=====  End of Section Four  ======*/
+/*  */
+/*  */
+/*=============================================
+=            Section Five            =
+=============================================*/
+
+.sec5 {
+  padding-top: var(--section-padding);
+  overflow: hidden;
+}
+
+.sec5 img {
+  display: block;
+  margin: auto;
+  margin-bottom: -120px;
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  .sec5 img {
+    /* margin-bottom: -60px; */
+    margin-bottom: -20vw;
+  }
+
+}
+
+/*=====  End of Section Five  ======*/
+/*  */
+/*  */
+/*=============================================
+=                 Section Six                 =
+=============================================*/
+
+.sec6 {
+  padding-block: var(--section-padding);
+  background: rgb(0 0 0 / 70%) url(../images/stats.png) center/cover;
+  background-blend-mode: darken;
+  min-height: 200px;
+}
+
+.sec6 .container {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.sec6 .container .card {
+  background-color: var(--transparent-color);
+  padding: 50px;
+  color: white;
+  text-align: center;
+  flex-basis: 25%;
+}
+
+@media (max-width: 992px) {
+  .sec6 .container .card {
+    flex-basis: 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  .sec6 .container .card {
+    flex-basis: 100%;
+  }
+}
+
+.sec6 .container .card i {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #000;
+  line-height: 40px;
+  margin-bottom: 30px;
+}
+
+.sec6 .container .card div {
+  font-size: 50px;
+  font-weight: bold;
+  margin: 0 0 20px;
+}
+
+.sec6 .container .card p {
+  font-size: 14px;
+}
+
+
+/*=====  End of Section Six  ======*/
+
+
+/*=============================================
+=            Section Seven            =
+=============================================*/
+.sec7 {
+  padding-block: var(--section-padding);
+}
+
+.sec7 .container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.sec7 .container > div {
+  flex-basis: 45%;
+}
+
+@media (max-width: 991px) {
+  .sec7 .container > div {
+    flex-basis: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .sec7 .profile {
+    flex-direction: column;
+  }
+
+  .sec7 .profile img {
+    margin: 50px 0 !important;
+  }
+
+  .sec7 .profile div {
+    text-align: center;
+  }
+
+}
+
+/* .sec7 .testimonials {} */
+
+.sec7 .container > div > h4 {
+  margin: 0 0 30px;
+  font-weight: normal;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.sec7 .container > div > p {
+  color: #777;
+  line-height: 2;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.sec7 .profile {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.sec7 .profile img {
+  width: 100px;
+  margin-right: 50px;
+  border-radius: 50%;
+}
+
+.sec7 .profile div {
+  border-bottom: 1px solid #ccc;
+  line-height: 1.8;
+}
+
+.sec7 .profile div p {
+  color: #777;
+  text-align: right;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.sec7 .bullets {
+  width: 100%;
+  justify-content: center;
+  position: static;
+  transform: translateX(0);
+  margin-block: 50px;
+  -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -o-transform: translateX(0);
+}
+
+.sec7 .bullets li {
+  border: 1px solid #aaa;
+}
+
+/* --------------------- */
+
+.sec7 .skills .progress-bar {
+  margin-bottom: 30px;
+}
+
+.sec7 .skills .progress-bar h4 {
+  margin-bottom: 15px;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+.sec7 .skills .progress-bar .bar {
+  height: 30px;
+  background: var(--main-color);
+  background: #dedadc;
+}
+
+.sec7 .skills .progress-bar .bar span {
+  background: var(--main-color);
+  display: block;
+  height: 100%;
+  position: relative;
+}
+
+
+.sec7 .skills .progress-bar .bar span::before {
+  content: attr(data-progress);
+  color: white;
+  background: black;
+  border-radius: 15%;
+  padding: 5px;
+  position: absolute;
+  /* right: -4.2%; */
+  right: -20.75px;
+  bottom: 130%;
+}
+
+
+.sec7 .skills .progress-bar .bar span::after {
+  content: '';
+  border: 8px solid;
+  border-color: black transparent transparent;
+  position: absolute;
+  top: -9px;
+  /* right: -1.5%; */
+  right: -8px;
+}
+
+
+
+/*=====  End of Section Seven  ======*/
+/*  */
+/*  */
+
+/*=============================================
+  =            Section Eight            =
+  =============================================*/
+
+.sec8 {
+  background: rgb(0 0 0 / 70%) url(../images/quote.jpg) no-repeat center/cover;
+  background-blend-mode: darken;
+  padding-block: var(--section-padding);
+  color: white;
+  text-align: center;
+}
+
+.sec8 q {
+  font-size: 30px;
+  margin-bottom: 20px;
+  display: block;
+}
+
+/*=====  End of Section Eight  ======*/
+/*  */
+/*  */
+
+/*=============================================
+=                 Section Nine                =
+=============================================*/
+
+.sec9 {
+  padding-block: var(--section-padding);
+}
+
+
+.sec9 .table {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.sec9 .table .colomn {
+  text-align: center;
+  background-color: #f5f5f5;
+}
+
+
+.sec9 .table .colomn .head {
+  border-top: 1px solid var(--main-color);
+  border-bottom: 1px solid var(--main-color);
+  padding: 40px 20px;
+}
+
+.sec9 .table .colomn .head h3 {
+  font-weight: normal;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.sec9 .table .colomn .head span {
+  font-size: 60px;
+  font-weight: bold;
+}
+
+.sec9 .table .colomn .head span::before {
+  content: "$";
+  font-size: 25px;
+  font-weight: normal;
+  position: relative;
+  bottom: 40px;
+  left: -15px;
+}
+
+.sec9 .table .colomn .head span::after {
+  content: "/Mo";
+  font-size: 20px;
+  position: relative;
+  left: 15px;
+}
+
+/*  */
+
+.sec9 .table .colomn ul {
+  border-bottom: 1px solid var(--main-color);
+}
+
+
+.sec9 .table .colomn ul li {
+  padding: 20px;
+  position: relative;
+}
+
+.sec9 .table .colomn ul li:not(:last-of-type)::after {
+  content: '';
+  width: 80%;
+  height: 1px;
+  background: var(--main-color);
+  position: absolute;
+  bottom: 0;
+  right: 50%;
+  transform: translateX(50%);
+  -webkit-transform: translateX(50%);
+  -moz-transform: translateX(50%);
+  -ms-transform: translateX(50%);
+  -o-transform: translateX(50%);
+}
+
+/*  */
+
+/* .sec9 .foot {} */
+
+.sec9 .foot a {
+  display: block;
+  width: fit-content;
+  margin: 30px auto;
+  padding: 20px;
+  border: 1px solid var(--main-color);
+}
+
+/*  */
+
+.sec9 .container > p {
+  text-align: center;
+  margin: 50px auto 20px;
+  font-size: 20px;
+}
+
+.sec9 .container > a {
+  text-align: center;
+  width: fit-content;
+  margin: auto;
+  padding: 15px 30px;
+  background-color: var(--main-color);
+  color: white;
+}
+
+/*=====  End of Section Nine  ======*/
+/*  */
+/*  */
+
+/*=============================================
+=            Section Ten            =
+=============================================*/
+
+.sec10 {
+  padding-block: var(--section-padding);
+  background: rgba(0, 0, 0, 0.5) url(../images/subscribe.jpg) no-repeat top center/cover;
+  background-blend-mode: darken;
+  color: white;
+}
+
+.sec10 .container {
+  display: flex;
+}
+
+@media (max-width: 991px) {
+  .sec10 .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sec10 .container p {
+    margin-top: 30px;
+    margin-left: 0 !important;
+    text-align: center;
+  }
+}
+
+.sec10 form {
+  display: flex;
+  position: relative;
+  width: 500px;
+  max-width: 100%;
+}
+
+.sec10 form i {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+}
+
+.sec10 form input:first-of-type {
+  color: white;
+  background: transparent;
+  border: 1px solid white;
+  border-right: none;
+  padding: 20px 20px 20px 60px;
+  width: calc(100% - 130px);
+  caret-color: var(--main-color);
+}
+
+.sec10 form input:first-of-type:focus {
+  outline: none;
+}
+
+.sec10 form input:last-of-type {
+  width: 130px;
+  background: var(--main-color);
+  border: 1px solid white;
+  border-left: none;
+  color: white;
+}
+
+.sec10 .container p {
+  line-height: 2;
+  margin-left: 50px;
+}
+
+/*=====  End of Section Ten  ======*/
+
+
+/*=============================================
+=            Section Eleven            =
+=============================================*/
+
+.sec11 {
+  padding-block: var(--section-padding);
+}
+
+.sec11 .contact {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+  .sec11 .contact {
+    flex-direction: column-reverse;
+  }
+
+  .sec11 .contact form {
+    width: 95%;
+    margin: auto;
+  }
+
+  .sec11 .contact .info {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+}
+
+.sec11 .contact form {
+  flex-basis: 70%;
+  caret-color: var(--main-color);
+}
+
+.sec11 .contact form .input {
+  padding: 20px;
+  display: block;
+  border: 1px solid #ccc;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.sec11 .contact form .input:focus {
+  outline: none;
+}
+
+
+.sec11 .contact form textarea {
+  resize: none;
+  height: 200px;
+}
+
+
+.sec11 .contact form input[type="submit"] {
+  width: fit-content;
+  background-color: var(--main-color);
+  color: white;
+  padding: 20px 20px;
+  border: 1px solid white;
+  display: block;
+  margin-left: auto;
+  position: relative;
+}
+
+.sec11 .contact form input[type="submit"]::before {
+  content: '';
+  width: 0px;
+  height: 100%;
+  position: absolute;
+
+}
+
+/*  */
+
+.sec11 .contact .info {
+  flex-basis: 25%;
+}
+
+.sec11 .contact .info h4 {
+  text-transform: uppercase;
+  margin-bottom: 30px;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.sec11 .contact .info .phone {
+  display: block;
+  color: #777;
+  margin-bottom: 10px;
+}
+
+.sec11 .contact .info h4:nth-of-type(2) {
+  margin-top: 90px;
+}
+
+.sec11 .contact .info address {
+  color: #777;
+  line-height: 2;
+}
+
+
+/*=====  End of Section Eleven  ======*/
+
+
+/*=============================================
+=            Footer            =
+=============================================*/
+
+footer {
+  padding-block: calc(var(--section-padding) / 2);
+  background: rgb(0 0 0 / 70%) url(../images/subscribe.jpg) no-repeat top center/cover;
+  background-blend-mode: darken;
+  text-align: center;
+  color: white;
+}
+
+footer img {
+  margin-bottom: 20px;
+}
+
+footer p:not(.copyright) {
+  text-transform: uppercase;
+  padding: 20px;
+  border-bottom: 1px solid white;
+  font-size: 22px;
+  width: fit-content;
+  margin: 20px auto;
+}
+
+footer i {
+  padding: 10px 15px;
+}
+
+footer .copyright {
+  margin-top: 60px;
+}
+
+
+footer .copyright span {
+  font-weight: bold;
+  color: var(--main-color);
+}
+
+
+/*=====  End of Footer  ======*/
